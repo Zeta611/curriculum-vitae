@@ -1,0 +1,45 @@
+\documentclass[a4paper,10pt]{memoir}
+
+\setlrmarginsandblock{1in}{1in}{*}
+\setulmarginsandblock{1in}{1in}{*}
+\checkandfixthelayout
+
+%%% Overall document settings
+\usepackage{microtype}
+
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs}
+
+% For madsen chapter style:
+\usepackage{graphicx}
+
+\usepackage[no-math]{fontspec}
+% Oblivoir does the following automatically:
+\usepackage{kotex}
+\hangingpunctuations
+\usepackage[pdfencoding=auto,bookmarks]{hyperref}
+\ifpdf
+  \input glyphtounicode
+  \pdfgentounicode=1
+\fi
+
+%%% Font settings
+\setmainfont{Libertinus Serif}[Scale=1.11]
+\setsansfont{Libertinus Sans}[Scale=1.11]
+\setmonofont{Inconsolata}
+
+\setmainhangulfont{Noto Serif CJK KR}
+\setsanshangulfont[BoldFont={* Bold}]{KoPubWorldDotum_Pro}
+\setmonohangulfont{D2Coding}
+
+\setlength{\parindent}{0pt}
+
+%%% Memoir settings
+\pagestyle{empty}
+\setsecnumdepth{chapter}
+
+\newcommand*\mail[1]{\href{mailto:#1}{\texttt{#1}}}
+\newcommand*\github[1]{\href{https://github.com/#1}{\texttt{github.com/#1}}}
+\newcommand*\blog{\href{https://zetablog.io}{\texttt{zetablog.io}}}
+
+\begin{document}
