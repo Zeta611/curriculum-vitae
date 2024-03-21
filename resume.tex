@@ -1,43 +1,90 @@
-% !TEX root = ./default.tex
-{\huge \textsc{Jaeho Lee} \hfill \textsc{Curriculum Vitae}}
+\documentclass[a4paper,10pt]{memoir}
 
-\vskip\onelineskip
+\setlrmarginsandblock{1in}{1in}{*}
+\setulmarginsandblock{1in}{1in}{*}
+\checkandfixthelayout
+
+%%% Overall document settings
+\usepackage{microtype}
+
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs}
+
+% For madsen chapter style:
+\usepackage{graphicx}
+
+\usepackage[no-math]{fontspec}
+\usepackage{kotex}
+\usepackage[pdfencoding=auto,bookmarks]{hyperref}
+
+%%% Font settings
+\usepackage{libertine}
+\setmonofont{MonaspaceArgon}[
+  Extension = .otf,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic,
+  BoldItalicFont = *-BoldItalic,
+  Scale=MatchLowercase,
+]
+\setmainhangulfont{Noto Serif CJK KR}[
+  Scale = MatchUppercase,
+  AutoFakeSlant = 0.15
+]
+\setsanshangulfont{KoPubWorldDotum_Pro}[
+  Scale = MatchUppercase,
+  BoldFont={* Bold},
+]
+\setmonohangulfont{D2Coding}[
+  Scale = MatchLowercase,
+]
+
+\setlength{\parindent}{0pt}
+
+%%% Memoir settings
+\pagestyle{empty}
+\setsecnumdepth{chapter}
+
+\newcommand*\mail[1]{\href{mailto:#1}{\texttt{#1}}}
+\newcommand*\github[1]{\href{https://github.com/#1}{\texttt{github.com/#1}}}
+\newcommand*\website{\href{https://ropas.snu.ac.kr/~jhlee/}{\texttt{ropas.snu.ac.kr/\textasciitilde jhlee}}}
+\newcommand*\blog{\href{https://zetablog.io}{\texttt{zetablog.io}}}
+
+\begin{document}
+{\huge \textsc{Jaeho Lee} \hfill \textsc{Curriculum Vitae}}
 
 {\small
   \begin{tblr}{rl}
-    \textbf{Email:}  & \mail{jaeho.lee@snu.ac.kr} \\
+    \textbf{Email:}  & \mail{jaeho.lee@snu.ac.kr}, \mail{jhlee@ropas.snu.ac.kr} \\
+    \textbf{Website:} & \website           \\
     \textbf{GitHub:} & \github{Zeta611}           \\
-    \textbf{Blog:}   & \blog                      \\
+    % \textbf{Blog:}   & \blog                      \\
   \end{tblr}
 }
-
-\vskip\onelineskip
 
 \begin{tblr}{X}
   {\Large\textsc{Interests}}                                                               \\ \hline
   Static Analysis, Programming Languages, Functional Programming, and Software Engineering \\
 \end{tblr}
 
-\vskip\onelineskip
-
 \begin{tblr}{Xr}
   {\Large\textsc{Education}}                                                  &                                       \\ \hline
   \textbf{Seoul National University} (SNU)                                    & Seoul, Korea                          \\
   {\small\textit{Master of Science in Computer Science and Engineering}}      & \textit{Mar 2024--\phantom{Feb 2026}} \\
   {\small\textit{Bachelor of Science in Electrical and Computer Engineering}} & \textit{Mar 2018--Feb 2024}           \\
-  \SetCell[c=2]{l} National Presidential Scholarship for Science (full-tuition scholarship)                           \\
-  \SetCell[c=2]{l} Leave of absence for military duty during 2020--2021                                               \\[0.5\onelineskip]
+  \SetCell[c=2]{l} \quad{\small\textit{Cum laude;} GPA: 3.81/4.3}                            \\
+  \SetCell[c=2]{l} \quad{\small National Presidential Scholarship for Science (full-tuition scholarship)}                           \\
+  \SetCell[c=2]{l} \quad{\small Leave of absence for military duty during 2020--2021}                           \\[0.5\onelineskip]
   \textbf{Korea Science Academy of KAIST} (KSA)                               & Busan, Korea                          \\
-  {\small\textit{Graduated; GPA: 4.05/4.3}}                                   & \textit{Mar 2015--Feb 2018}           \\
-  High school for gifted students, KSA Fund Scholarship                                                               \\
+  \quad{\small Graduated; GPA: 4.05/4.3}                                   & \textit{Mar 2015--Feb 2018}           \\
+  \quad{\small High school for gifted students, KSA Fund Scholarship}                                                               \\
 \end{tblr}
-
-\vskip\onelineskip
 
 \begin{tblr}{Xr}
   {\Large\textsc{Research Experiences}}                                                                 &                                                                           \\ \hline
   \textbf{Programming Research Laboratory (ROPAS)}                                                      & Seoul, Korea                                                              \\
-  {\small\textit{Undergraduate research intern, advised by Prof. Kwangkeun Yi}}                         & \textit{Feb 2022--Present}                                                \\
+  {\small\textit{Master's student, advised by Prof. Kwangkeun Yi}}                         & \textit{Mar 2024--Present}                                                \\
+  {\small\textit{Undergraduate research intern, advised by Prof. Kwangkeun Yi}}                         & \textit{Feb 2022--Feb 2024}                                                \\
   \SetCell[c=2]{l} \textbullet\ Static analysis of React programs and formalization of the React hooks (Ongoing work)                                                               \\
   \SetCell[c=2]{l} \textbullet\ Uncaught exception analysis on \href{https://rescript-lang.org/}{ReScript}                                                                          \\
   \SetCell[c=2]{l} \textbullet\ Prospect analysis of programs with a hole (\url{https://github.com/Zeta611/L})
@@ -45,7 +92,7 @@
 
   \textbf{Security Optimization Research Laboratory (SOR)}                                              & Seoul, Korea                                                              \\
   {\small\textit{Undergraduate graduation project, advised by Prof. Yunheung Paek}}                     & \textit{May 2022--Present}                                                \\
-  \SetCell[c=2]{l} \textbullet\ Escape analysis of \texttt{unsafe} Rust (Ongoing work)                                                                                              \\[0.5\onelineskip]
+  \SetCell[c=2]{l} \textbullet\ Escape analysis of \texttt{unsafe} Rust (\url{https://github.com/Zeta611/rust-escape-analysis-thesis})                                                                                              \\[0.5\onelineskip]
 
   \textbf{Neuro-Machine Augmented Intelligence Laboratory (NMAIL)}                                      & Daejeon, Korea                                                            \\
   {\small\textit{R\&E and High School Research \& Education Program (HRP), advised by Prof. Sungho Jo}} & \textit{Jan 2016--Nov 2017}                                               \\
@@ -53,8 +100,6 @@
   \SetCell[c=2]{l} \quad\textbullet\ Attended International Science and Engineering Fair (ISEF) 2017 as a finalist                                                                  \\
   \SetCell[c=2]{l} \quad\textbullet\ Presented result in the \href{https://doi.org/10.3745/PKIPS.y2016m10a.579}{Proceedings of the Korea Information Processing Society Conference} \\
 \end{tblr}
-
-\vskip\onelineskip
 
 \begin{tblr}{Xr}
   {\Large\textsc{Work Experiences}}                      &                                                            \\ \hline
@@ -65,14 +110,10 @@
   \SetCell[c=2]{l} \textbullet\ Jeongyookgak is a distribution business startup that delivers fresh meat to customers \\
 \end{tblr}
 
-\vskip\onelineskip
-
 \begin{tblr}{Xr}
   {\Large\textsc{Publications}} & \\ \hline
   \href{https://doi.org/10.3745/PKIPS.y2016m10a.579}{J. Lee, C. Lee, W. Jung, S. Song, and S. Jo, ``Receding Horizon Next-Best-View Planner Based Voronoi-Biased 3D Multi-Robot Exploration Algorithm,'' \textit{Proceedings of the Korea Information Processing Society Conference}, pp. 579–580, Oct. 2016.}
 \end{tblr}
-
-\vskip\onelineskip
 
 \begin{tblr}{Xr}
   {\Large\textsc{Selected Honors}}                                    &                                          \\ \hline
@@ -86,15 +127,12 @@
   \SetCell[c=2]{l} Scholarship for freshmen with high GPAs                                                       \\
 \end{tblr}
 
-\vskip\onelineskip
-
 \begin{tblr}{Xr}
   {\Large\textsc{Teaching Experiences}}                       &                      \\ \hline
   \textbf{Seoul National University}                          &                      \\
+  Teaching Assistant, \textit{4190.310 Programming Languages} & \textit{Spring 2024} \\
   Teaching Assistant, \textit{4190.310 Programming Languages} & \textit{Spring 2022} \\
 \end{tblr}
-
-\vskip\onelineskip
 
 \begin{tblr}{X}
   {\Large\textsc{Projects}}                                                                                                                                                                                                                                                                    \\ \hline
@@ -128,8 +166,6 @@
 \end{tblr}
 
 
-\vskip\onelineskip
-
 \begin{tblr}{Xr}
   {\Large\textsc{Miscellaneous}}                                          &                                                                                                     \\ \hline
   \textbf{SNULife}                                                        & \textit{Apr 2018---Present}                                                                         \\
@@ -138,6 +174,7 @@
 
   \textbf{Korean \TeX\ Society} (KTS)                                     & \textit{Jun 2019---Present}                                                                         \\
   \SetCell[c=2]{l} As a member of the Korean \TeX\ Society, I have given a few talks including:                                                                                 \\
+  \SetCell[c=2]{l} \textbullet\ \href{https://github.com/Zeta611/modern-tex-engines-automation-ai-latex-workshop-2023}{Modern \TeX: Engines, AI, and Automation}, 2023 KNU \LaTeX\ Workshop   \\
   \SetCell[c=2]{l} \textbullet\ \href{https://github.com/Zeta611/tabularray-tutorial-latex-workshop-2022}{Drawing tables with \texttt{tabularray}}, 2022 KNU \LaTeX\ Workshop   \\
   \SetCell[c=2]{l} \textbullet\ \href{https://github.com/Zeta611/asymptote-tutorial-latex-workshop-2021}{Asymptote: The Vector Graphics Language}, 2022 KNU \LaTeX\ Workshop    \\
   \SetCell[c=2]{l} \textbullet\ \href{https://github.com/Zeta611/key-value-tutorial-latex-workshop-2021}{The ``key-value'' structure in \LaTeX}, 2021 KNU \LaTeX\ Workshop      \\
@@ -152,10 +189,10 @@
   \SetCell[c=2]{l} Student representative of the Department of Electrical and Computer Engineering                                                                              \\[0.5\onelineskip]
 
   \textbf{Korea Young Physicists' Tournament} (KYPT 2016/2017)            & \SetCell[r=2]{t,r} \textit{Jun 2016--Jan 2017                                                       \\Jun 2017--Jan 2018} \\
-  Team lead, won a gold medal in KYPT 2017 \& a bronze medal in KYPT 2016 &                                                                                                     \\%[0.5\onelineskip]
+  \SetCell[c=2]{l}Team lead, won a gold medal in KYPT 2017 \& a bronze medal in KYPT 2016 &                                                                                                     \\[0.5\onelineskip]
 
-  % \textbf{Frontiers Summer Program} (Worcester Polytechnic Institute) & \textit{Jul 2016} \\
-  % \SetCell[c=2]{l} Studied aerospace engineering and psychology\\
+  \textbf{Frontiers Summer Program} (Worcester Polytechnic Institute) & \textit{Jul 2016} \\
+  \SetCell[c=2]{l} Studied aerospace engineering and psychology\\
 \end{tblr}
 
 \vskip\onelineskip
@@ -166,3 +203,4 @@
 \end{tblr}
 
 \vfill\hfill \scriptsize Last updated: \today
+\end{document}
