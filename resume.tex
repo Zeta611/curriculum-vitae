@@ -10,20 +10,21 @@
 \usepackage{tabularray}
 \UseTblrLibrary{booktabs}
 
+\usepackage{xcolor}
+
 % For madsen chapter style:
 \usepackage{graphicx}
 
 \usepackage[no-math]{fontspec}
 \usepackage{kotex}
-\usepackage[pdfencoding=auto,bookmarks]{hyperref}
 
 %%% Font settings
 \usepackage{libertine}
-\setmonofont{MonaspaceArgon}[
-  Extension = .otf,
+\setmonofont{JuliaMono}[
+  Extension = .ttf,
   UprightFont = *-Regular,
   BoldFont = *-Bold,
-  ItalicFont = *-Italic,
+  ItalicFont = *-RegularItalic,
   BoldItalicFont = *-BoldItalic,
   Scale=MatchLowercase,
 ]
@@ -48,7 +49,17 @@
 \newcommand*\mail[1]{\href{mailto:#1}{\texttt{#1}}}
 \newcommand*\github[1]{\href{https://github.com/#1}{\texttt{github.com/#1}}}
 \newcommand*\website{\href{https://ropas.snu.ac.kr/~jhlee/}{\texttt{ropas.snu.ac.kr/\textasciitilde jhlee}}}
-\newcommand*\blog{\href{https://zetablog.io}{\texttt{zetablog.io}}}
+\newcommand*\blog{\href{https://jaylee.xyz}{\texttt{jaylee.xyz}}}
+
+\usepackage[pdfencoding=auto,bookmarks]{hyperref}
+\hypersetup{
+  colorlinks,
+  linkcolor={black},
+  citecolor={red!73!black},
+  urlcolor={black},
+  pdflang = { en },
+  pdfsubject = {Jaeho Lee Curriculum Vitae},
+}
 
 \begin{document}
 {\huge \textsc{Jaeho Lee} \hfill \textsc{Curriculum Vitae}}
@@ -58,7 +69,7 @@
     \textbf{Email:}  & \mail{jaeho.lee@snu.ac.kr}, \mail{jhlee@ropas.snu.ac.kr} \\
     \textbf{Website:} & \website           \\
     \textbf{GitHub:} & \github{Zeta611}           \\
-    % \textbf{Blog:}   & \blog                      \\
+    \textbf{Blog:}   & \blog                      \\
   \end{tblr}
 }
 
@@ -70,7 +81,7 @@
 \begin{tblr}{Xr}
   {\Large\textsc{Education}}                                                  &                                       \\ \hline
   \textbf{Seoul National University} (SNU)                                    & Seoul, Korea                          \\
-  {\small\textit{Master of Science in Computer Science and Engineering}}      & \textit{Mar 2024--\phantom{Feb 2026}} \\
+  {\small\textit{Master of Science in Computer Science and Engineering}}      & \textit{Mar 2024--Present} \\
   {\small\textit{Bachelor of Science in Electrical and Computer Engineering}} & \textit{Mar 2018--Feb 2024}           \\
   \SetCell[c=2]{l} \quad{\small\textit{Cum laude;} GPA: 3.81/4.3}                            \\
   \SetCell[c=2]{l} \quad{\small National Presidential Scholarship for Science (full-tuition scholarship)}                           \\
@@ -85,13 +96,13 @@
   \textbf{Programming Research Laboratory (ROPAS)}                                                      & Seoul, Korea                                                              \\
   {\small\textit{Master's student, advised by Prof. Kwangkeun Yi}}                         & \textit{Mar 2024--Present}                                                \\
   {\small\textit{Undergraduate research intern, advised by Prof. Kwangkeun Yi}}                         & \textit{Feb 2022--Feb 2024}                                                \\
-  \SetCell[c=2]{l} \textbullet\ Static analysis of React programs and formalization of the React hooks (Ongoing work)                                                               \\
-  \SetCell[c=2]{l} \textbullet\ Uncaught exception analysis on \href{https://rescript-lang.org/}{ReScript}                                                                          \\
-  \SetCell[c=2]{l} \textbullet\ Prospect analysis of programs with a hole (\url{https://github.com/Zeta611/L})
+  \SetCell[c=2]{l} \textbullet\ Formal semantics and static analysis of \href{https://react.dev/}{React hooks} (\github{React-Analysis/react-trace})                                                               \\
+  \SetCell[c=2]{l} \textbullet\ Uncaught exception analysis on \href{https://rescript-lang.org/}{ReScript} (\github{LimitEpsilon/reanalyze-ropas})                                                                         \\
+  \SetCell[c=2]{l} \textbullet\ Prospect analysis of programs with a hole (\github{Zeta611/L})
   \\[0.5\onelineskip]
 
   \textbf{Security Optimization Research Laboratory (SOR)}                                              & Seoul, Korea                                                              \\
-  {\small\textit{Undergraduate graduation project, advised by Prof. Yunheung Paek}}                     & \textit{May 2022--Present}                                                \\
+  {\small\textit{Undergraduate graduation project, advised by Prof. Yunheung Paek}}                     & \textit{May 2022--Dec 2023}                                                \\
   \SetCell[c=2]{l} \textbullet\ Escape analysis of \texttt{unsafe} Rust (\url{https://github.com/Zeta611/rust-escape-analysis-thesis})                                                                                              \\[0.5\onelineskip]
 
   \textbf{Neuro-Machine Augmented Intelligence Laboratory (NMAIL)}                                      & Daejeon, Korea                                                            \\
@@ -117,7 +128,7 @@
 
 \begin{tblr}{Xr}
   {\Large\textsc{Selected Honors}}                                    &                                          \\ \hline
-  \textbf{National Presidential Scholarship for Science}              & \textit{Mar 2018--Present}               \\
+  \textbf{National Presidential Scholarship for Science}              & \textit{Mar 2018--Feb 2024}               \\
   \SetCell[c=2]{l} {National science scholarship offered to top students in the field of science and technology} \\[0.5\onelineskip]
 
   \textbf{International Science and Engineering Fair (ISEF) Finalist} & \textit{May 2017}                        \\
