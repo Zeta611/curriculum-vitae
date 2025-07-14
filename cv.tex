@@ -1,0 +1,226 @@
+\documentclass[a4paper,10pt,oneside]{memoir}
+
+\setlrmarginsandblock{1.5in}{0.8in}{*}
+\setulmarginsandblock{1in}{1in}{*}
+\setmarginnotes{13pt}{1in}{\onelineskip}
+\checkandfixthelayout
+
+%%% Overall document settings
+\usepackage{microtype}
+
+\usepackage{enumitem}
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs}
+
+\usepackage{xcolor}
+
+\usepackage{fontawesome5}
+\usepackage{soul}
+
+% For madsen chapter style:
+\usepackage{graphicx}
+
+\usepackage[no-math]{fontspec}
+\usepackage{kotex}
+
+\usepackage{relsize}
+
+%%% Font settings
+\usepackage{libertine}
+\setmonofont{JuliaMono}[
+  Extension      = .ttf,
+  UprightFont    = *-Regular,
+  BoldFont       = *-Bold,
+  ItalicFont     = *-RegularItalic,
+  BoldItalicFont = *-BoldItalic,
+  Scale          = MatchLowercase,
+]
+\setmainhangulfont{Noto Serif CJK KR}[
+  Scale         = MatchUppercase,
+  AutoFakeSlant = 0.15
+]
+\setsanshangulfont{KoPubWorldDotum_Pro}[
+  Scale    = MatchUppercase,
+  BoldFont = {* Bold},
+]
+\setmonohangulfont{D2Coding}[
+  Scale = MatchLowercase,
+]
+
+\newfontfamily\redemonfont{tsukimirounded}[
+  Extension = .ttf,
+  Ligatures = TeX,
+  Scale = MatchUppercase,
+  UprightFont = *-Medium,
+  BoldFont = *-Bold,
+]
+
+\newcommand\Rdemon{{\redemonfont ReDemon UI}}
+
+\setlength{\parindent}{0pt}
+
+%%% Memoir settings
+\pagestyle{empty}
+\setsecnumdepth{none}
+
+\newcommand{\ruledsec}[1]{%
+\Large\scshape\raggedright\strut #1%
+\hrule%
+}
+\setsecheadstyle{\ruledsec}
+\setaftersecskip{.5\onelineskip}
+
+\newcommand*\mail[1]{\href{mailto:#1}{\texttt{#1}}}
+\newcommand*\github[1]{\href{https://github.com/#1}{\texttt{#1}}}
+\newcommand*\website{\href{https://ropas.snu.ac.kr/~jhlee/}{\texttt{ropas.snu.ac.kr/\textasciitilde jhlee}}}
+\newcommand*\blog{\href{https://jaylee.xyz}{\texttt{jaylee.xyz}}}
+
+\usepackage[pdfencoding=auto,bookmarks]{hyperref}
+\hypersetup{
+  colorlinks,
+  linkcolor  = {blue!73!black},
+  citecolor  = {red!73!black},
+  urlcolor   = {violet!73!black},
+  pdflang    = {en},
+  pdfsubject = {Jay Lee's Curriculum Vitae},
+}
+
+\begin{document}
+{\huge \textsc{Jay Lee}~~이재호 \hfill \textsc{Curriculum Vitae}}
+
+\vspace{0.5\onelineskip}
+\faEnvelope[regular]~~\mail{jaeho.lee@snu.ac.kr}, \mail{jhlee@ropas.snu.ac.kr} \\
+\faGlobe~~\href{https://ropas.snu.ac.kr/~jhlee/}{\texttt{ropas.snu.ac.kr/\textasciitilde jhlee}}, \href{https://jaylee.xyz/}{\texttt{jaylee.xyz}} \\
+\faGithub~~\github{Zeta611}
+
+\section{Research Interests}
+Programming Languages, Program Analysis, Functional Programming, and Human-Computer Interaction
+
+\section{Education}
+\sidepar{\footnotesize Mar 2024--Present}\textbf{\textsf{Seoul National University (SNU),}} \textit{M.S. in Computer Science and Engineering}\\
+Advised by \href{http://kwangkeunyi.snu.ac.kr/}{Kwangkeun Yi}.
+% GPA: 4.2/4.3
+\vspace{0.5\onelineskip}
+
+\sidepar{\footnotesize Mar 2018--Feb 2024}\textbf{\textsf{Seoul National University (SNU),}} \textit{B.S. in Electrical and Computer Engineering (Cum laude)}\\
+Advised by \href{https://laser.snu.ac.kr/members/professor}{Yoonchan Jeong}.\\
+\textit{Leave of absence for mandatory military service during 2020--2021.}
+% GPA: 3.81/4.3
+\vspace{0.5\onelineskip}
+
+\sidepar{\footnotesize Mar 2015--Feb 2018}\textbf{\textsf{Korea Science Academy of KAIST (KSA),}} \textit{High school for gifted students}
+% GPA: 4.05/4.3
+
+
+\section{Selected Research}
+\sidepar{\footnotesize \href{https://doi.org/10.48550/arXiv.2507.05234}{\faFile*[regular]} \href{https://github.com/Zeta611/react-trace}{\faGithub}~~OOPSLA 2025}\textbf{\textsf{\textsc{React-tRace:} A Semantics for Understanding React Hooks}}\\
+\ul{Jay Lee}, Joongwon Ahn, Kwangkeun Yi\\
+\textit{Conditionally accepted.}
+\vspace{0.5\onelineskip}
+
+\sidepar{\footnotesize \href{https://github.com/Zeta611/redemon-ui}{\faGithub}~~UIST 2025\\Posters}\textbf{\textsf{\Rdemon: Reactive Synthesis by Demonstration for Web UI}}\\
+\ul{Jay Lee}, Gyuhyeok Oh, Joongwon Ahn, Xiaokang Qiu\\
+\textit{Submitted.}
+\vspace{0.5\onelineskip}
+
+\sidepar{\footnotesize \href{https://pldi25.sigplan.org/details/pldi-2025-src/1/}{\faFile*[regular]}~~PLDI 2025\\Student Research Competition (SRC)}\textbf{\textsf{Retargeting an Abstract Interpreter for a New Language by Partial Evaluation}}\\
+\ul{Jay Lee}\\
+\textit{Awarded 2\textsuperscript{nd} place in the graduate category.}
+
+\section{Selected Honors}
+\sidepar{\footnotesize Jun 2025}\textbf{\textsf{PLDI 2025 Student Research Competition (SRC) 2\textsuperscript{nd} Place}}\\
+\textit{Awarded in the graduate category for the work on \textnormal{Retargeting an Abstract Interpreter for a New Language by Partial Evaluation.}}
+\vspace{0.5\onelineskip}
+
+\sidepar{\footnotesize Sep 2024}\textbf{\textsf{Outstanding Teaching Assistant Award}}\\
+\textit{Awarded for the course \textnormal{SNU 4190.310 Programming Languages} taught by Prof. Kwangkeun Yi.}
+\vspace{0.5\onelineskip}
+
+\sidepar{\footnotesize Mar 2018--Feb 2024}\textbf{\textsf{National Presidential Scholarship for Science}}\\
+\textit{Offered to top-120 undergraduate students in the field of science and technology.}
+\vspace{0.5\onelineskip}
+
+\sidepar{\footnotesize May 2017}\textbf{\textsf{Intel International Science and Engineering Fair (ISEF) Finalist}}\\
+\textit{Finalist with the project \textnormal{Receding Horizon Next-Best-View Planner Based Voronoi-Biased 3D Multi-Robot Exploration Algorithm.}}
+\vspace{0.5\onelineskip}
+
+\sidepar{\footnotesize Mar 2015--Feb 2018}\textbf{\textsf{Korea Science Academy Fund Scholarship}}\\
+\textit{Scholarship for students with high GPAs.}
+
+
+\section{Teaching}
+\subsection{Teaching Assistant}
+\sidepar{\footnotesize Spring 2025}\textbf{\textsf{SNU 4190.664A Program Analysis}}\\
+\sidepar{\footnotesize Spring 2025}\textbf{\textsf{SNU 4190.310 Programming Languages}}\\
+\sidepar{\footnotesize Spring 2024}\textbf{\textsf{SNU 4190.310 Programming Languages}}\\
+\textit{Awarded the Outstanding Teaching Assistant Award.}\\
+\sidepar{\footnotesize Spring 2022}\textbf{\textsf{SNU 4190.310 Programming Languages}}
+
+
+\section{Industry Employment}
+\sidepar{\footnotesize Apr 2019--Dec 2019}\textbf{\textsf{\href{https://jeongyookgak.com}{Jeongyookgak},}} \textit{iOS application developer}\\
+Jeongyookgak is a distribution business startup that delivers fresh meat to customers.
+
+\section{Miscellaneous}
+\sidepar{\footnotesize 2025--Present}\textbf{\textsf{\href{https://github.com/orgs/ocaml/people?query=jay+lee}{OCaml organization},}} \textit{Opam repository maintainer}\\
+Maintaining the OCaml package repository.
+\vspace{0.5\onelineskip}
+
+\sidepar{\footnotesize 2023--Present}\textbf{\textsf{\href{https://easyword.kr/}{easyword.kr},}} \textit{Designer \& developer}\\
+A platform to suggest and discuss Korean translations of computer science jargons. Led by Prof. Kwangkeun Yi and funded by the Korean Institute of Information Scientists and Engineers (KIISE).
+\vspace{0.5\onelineskip}
+
+\sidepar{\footnotesize 2020--Present}\textbf{\textsf{\href{https://ctan.org/pkg/simplebnf}{simplebnf},}} \textit{Developer}\\
+A \LaTeX{} package that provides a simple way to typeset BNF using a DSL. Available on CTAN.
+\vspace{0.5\onelineskip}
+
+\sidepar{\footnotesize 2023}\textbf{\textsf{\href{https://github.com/Zeta611/cycloidal-surfaces}{Cycloidal-Surfaces},}} \textit{Illustrator}\\
+Illustrations of cycloid surfaces on parametrized curves with Asymptote, used in \href{https://doi.org/10.1080/00029890.2022.2130677}{Hyounggyu Choi. (2023) Invariance of the Area and Volume of Cycloid Surfaces and Trochoid Surfaces. \textit{The American Mathematical Monthly} 130:1, 49-62.}
+\vspace{0.5\onelineskip}
+
+\sidepar{\footnotesize 2020}\textbf{\textsf{\href{https://github.com/Zeta611/cycloidgen}{CycloidGen},}} \textit{Illustrator}\\
+Illustrations of cycloids on parametrized curves with Ti\textit{k}Z and Python, used in \href{https://doi.org/10.1080/00029890.2020.1743611}{Hyounggyu Choi. (2020) Invariance of the Length and the Area of Cycloids. \textit{The American Mathematical Monthly} 127:6, 537-544.}
+\vspace{0.5\onelineskip}
+
+\sidepar{\footnotesize 2019--2024}\textbf{\textsf{Korean \TeX\ Society (KTS),}} \textit{Member}\\
+I have given a few talks including:
+\begin{itemize}[noitemsep]
+  \item \href{https://githubcom/Zeta611/modern-tex-engines-automation-ai-latex-workshop-2023}{Modern \TeX: Engines, AI, and Automation}, 2023 KNU \LaTeX\ Workshop
+  \item \href{https://github.com/Zeta611/tabularray-tutorial-latex-workshop-2022}{Drawing tables with \texttt{tabularray}}, 2022 KNU \LaTeX\ Workshop
+  \item \href{https://github.com/Zeta611/asymptote-tutorial-latex-workshop-2021}{Asymptote: The Vector Graphics Language}, 2022 KNU \LaTeX\ Workshop
+  \item \href{https://github.com/Zeta611/key-value-tutorial-latex-workshop-2021}{The ``key-value'' structure in \LaTeX}, 2021 KNU \LaTeX\ Workshop
+  \item \href{https://github.com/Zeta611/beamer-tutorial-latex-workshop-2020}{\texttt{beamer}: Content-focused Presentation}, 2020 KNU \LaTeX\ Workshop
+  \item \href{https://github.com/Zeta611/texnical-vim-kts-conf-2020}{\TeX{}nical Vim}, 2020 KTS Conference
+  \item \href{https://github.com/Zeta611/chapterstyle-latex-workshop-2019}{\texttt{memoir}: chapter style}, 2019 KNU \LaTeX\ Workshop
+\end{itemize}
+\vspace{0.5\onelineskip}
+
+\sidepar{\footnotesize 2018--2024}\textbf{\textsf{SNULife,}} \textit{Development head}\\
+SNULife is the web community for SNU with 180k+ monthly visitors. I created an iOS app for planning timetables and sharing lecture reviews, used by 5k+ users.
+\vspace{0.5\onelineskip}
+
+\sidepar{\footnotesize 2020--2021}\textbf{\textsf{ROK Army,}} \textit{Sergeant signaller}\\
+Completed mandatory military service in the ROK Army.
+\vspace{0.5\onelineskip}
+
+\sidepar{\footnotesize 2018}\textbf{\textsf{Student Representative,}} \textit{Department of Electrical and Computer Engineering}\\
+Elected as a student representative for the Department of Electrical and Computer Engineering at SNU.
+\vspace{0.5\onelineskip}
+
+\sidepar{\footnotesize 2016, 2017}\textbf{\textsf{Korea Young Physicists' Tournament (KYPT),}} \textit{Team lead}\\
+KYPT is a physics competition for high school students. I led the team that won a gold medal in KYPT 2017 and a bronze medal in KYPT 2016.
+\vspace{0.5\onelineskip}
+
+\sidepar{\footnotesize \href{https://doi.org/10.3745/PKIPS.y2016m10a.579}{\faFile*[regular]}~~KIPS 2016}\textbf{\textsf{Receding Horizon Next-Best-View Planner Based Voronoi-Biased 3D Multi-Robot Exploration Algorithm}}\\
+\ul{J. Lee}, C. Lee, W. Jung, S. Song, S. Jo\\
+A domestic conference paper.
+\vspace{0.5\onelineskip}
+
+\sidepar{\footnotesize 2016}\textbf{\textsf{Frontiers Summer Program,}} \textit{Worcester Polytechnic Institute}\\
+Studied aerospace engineering and psychology at Worcester Polytechnic Institute in the USA.
+
+\section{Natural Languages}
+\textbf{Korean} (native), \textbf{English} (fluent), \textbf{Spanish} (elementary)
+
+\vfill\hfill \textit{Last updated on \today.}
+\end{document}
