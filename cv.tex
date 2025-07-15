@@ -15,6 +15,7 @@
 \usepackage{xcolor}
 
 \usepackage{fontawesome5}
+% \usepackage{worldflags}
 \usepackage{soul}
 
 % For madsen chapter style:
@@ -75,6 +76,62 @@
 \newcommand*\website{\href{https://ropas.snu.ac.kr/~jhlee/}{\texttt{ropas.snu.ac.kr/\textasciitilde jhlee}}}
 \newcommand*\blog{\href{https://jaylee.xyz}{\texttt{jaylee.xyz}}}
 
+\NewDocumentCommand{\Metadata}{m}
+{\sidepar{\footnotesize #1}}
+
+\ExplSyntaxOn
+\keys_define:nn { entry }
+  {
+    title .tl_set:N = \l_cv_title,
+    position .tl_set:N = \l_cv_position,
+    body .tl_set:N = \l_cv_body,
+    note .tl_set:N = \l_cv_note,
+    date .tl_set:N = \l_cv_date,
+    paper .tl_set:N = \l_cv_paper,
+    github .tl_set:N = \l_cv_github,
+    video .tl_set:N = \l_cv_video,
+    url .tl_set:N = \l_cv_url,
+  }
+
+\tl_new:N \l_meta
+\NewDocumentCommand {\Entry} { m }
+  {
+    \group_begin: % keep the assignment to the keys local
+    \keys_set:nn { entry } { #1 }
+
+    \tl_clear:N \l_meta
+    \tl_if_blank:VF \l_cv_paper
+      {
+        \tl_put_right:Nn \l_meta { ~\href{\l_cv_paper}{\color{black}\faFile*[regular]} }
+      }
+    \tl_if_blank:VF \l_cv_github
+      {
+        \tl_put_right:Nn \l_meta { ~\href{\l_cv_github}{\color{black}\faGithub} }
+      }
+    \tl_if_blank:VF \l_cv_url
+      {
+        \tl_put_right:Nn \l_meta { ~\href{\l_cv_url}{\color{black}\faGlobe} }
+      }
+
+    \sidepar
+      {
+        \footnotesize
+        \tl_if_blank:VF \l_meta { \tl_use:N \l_meta \\ }
+        \textsf{\tl_use:N \l_cv_date}
+      }
+
+    \tl_if_blank:VTF \l_cv_position
+      { \textbf{\textsf{\tl_use:N \l_cv_title}} }
+      { \textbf{\textsf{\tl_use:N \l_cv_title,~}} \textit{\tl_use:N \l_cv_position} }
+
+    \tl_if_blank:VF \l_cv_body { \\ \tl_use:N \l_cv_body }
+
+    \tl_if_blank:VF \l_cv_note { \\ \textit{\tl_use:N \l_cv_note} }
+
+    \group_end:
+  }
+\ExplSyntaxOff
+
 \usepackage[pdfencoding=auto,bookmarks]{hyperref}
 \hypersetup{
   colorlinks,
@@ -97,129 +154,248 @@
 Programming Languages, Program Analysis, Functional Programming, and Human-Computer Interaction
 
 \section{Education}
-\sidepar{\footnotesize Mar 2024--Present}\textbf{\textsf{Seoul National University (SNU),}} \textit{M.S. in Computer Science and Engineering}\\
-Advised by \href{http://kwangkeunyi.snu.ac.kr/}{Kwangkeun Yi}.
+\Entry{
+  date     = {Mar 2024--Present},
+  title    = {Seoul National University (SNU)},
+  position = {M.S. in Computer Science and Engineering},
+  body     = {Advised by \href{http://kwangkeunyi.snu.ac.kr/}{Kwangkeun Yi}.},
+}
 % GPA: 4.2/4.3
 \vspace{0.5\onelineskip}
 
-\sidepar{\footnotesize Mar 2018--Feb 2024}\textbf{\textsf{Seoul National University (SNU),}} \textit{B.S. in Electrical and Computer Engineering (Cum laude)}\\
-Advised by \href{https://laser.snu.ac.kr/members/professor}{Yoonchan Jeong}.\\
-\textit{Leave of absence for mandatory military service during 2020--2021.}
+\Entry{
+  date     = {Mar 2018--Feb 2024},
+  title    = {Seoul National University (SNU)},
+  position = {B.S. in Electrical and Computer Engineering (Cum laude)},
+  body     = {Advised by \href{https://laser.snu.ac.kr/members/professor}{Yoonchan Jeong}.},
+  note     = {Leave of absence for mandatory military service during 2020--2021.},
+}
 % GPA: 3.81/4.3
 \vspace{0.5\onelineskip}
 
-\sidepar{\footnotesize Mar 2015--Feb 2018}\textbf{\textsf{Korea Science Academy of KAIST (KSA),}} \textit{High school for gifted students}
+\Entry{
+  date     = {Mar 2015--Feb 2018},
+  title    = {Korea Science Academy of KAIST (KSA)},
+  position = {High school for gifted students},
+}
 % GPA: 4.05/4.3
 
 
 \section{Selected Research}
-\sidepar{\footnotesize \href{https://doi.org/10.48550/arXiv.2507.05234}{\faFile*[regular]} \href{https://github.com/Zeta611/react-trace}{\faGithub}~~OOPSLA 2025}\textbf{\textsf{\textsc{React-tRace:} A Semantics for Understanding React Hooks}}\\
-\ul{Jay Lee}, Joongwon Ahn, Kwangkeun Yi\\
-\textit{Conditionally accepted.}
+\Entry{
+  date     = {OOPSLA 2025},
+  title    = {\textsc{React-tRace:} A Semantics for Understanding React Hooks},
+  body     = {\ul{Jay Lee}, Joongwon Ahn, Kwangkeun Yi},
+  note     = {Conditionally accepted.},
+  paper    = {https://doi.org/10.48550/arXiv.2507.05234},
+  github   = {https://github.com/Zeta611/react-trace},
+}
 \vspace{0.5\onelineskip}
 
-\sidepar{\footnotesize \href{https://github.com/Zeta611/redemon-ui}{\faGithub}~~UIST 2025\\Posters}\textbf{\textsf{\Rdemon: Reactive Synthesis by Demonstration for Web UI}}\\
-\ul{Jay Lee}, Gyuhyeok Oh, Joongwon Ahn, Xiaokang Qiu\\
-\textit{Submitted.}
+\Entry{
+  date     = {UIST 2025\\Posters},
+  title    = {\Rdemon: Reactive Synthesis by Demonstration for Web UI},
+  body     = {\ul{Jay Lee}, Gyuhyeok Oh, Joongwon Ahn, Xiaokang Qiu},
+  note     = {Submitted.},
+  paper    = {https://doi.org/10.48550/arXiv.2507.10099},
+  github   = {https://github.com/Zeta611/redemon-ui},
+}
 \vspace{0.5\onelineskip}
 
-\sidepar{\footnotesize \href{https://pldi25.sigplan.org/details/pldi-2025-src/1/}{\faFile*[regular]}~~PLDI 2025\\Student Research Competition (SRC)}\textbf{\textsf{Retargeting an Abstract Interpreter for a New Language by Partial Evaluation}}\\
-\ul{Jay Lee}\\
-\textit{Awarded 2\textsuperscript{nd} place in the graduate category.}
+\Entry{
+  date     = {PLDI 2025\\Student Research Competition (SRC)},
+  title    = {Retargeting an Abstract Interpreter for a New Language by Partial Evaluation},
+  body     = {\ul{Jay Lee}},
+  note     = {Awarded 2\textsuperscript{nd} place in the graduate category.},
+  paper    = {https://pldi25.sigplan.org/details/pldi-2025-src/1/},
+}
 
 \section{Selected Honors}
-\sidepar{\footnotesize Jun 2025}\textbf{\textsf{PLDI 2025 Student Research Competition (SRC) 2\textsuperscript{nd} Place}}\\
-\textit{Awarded in the graduate category for the work on \textnormal{Retargeting an Abstract Interpreter for a New Language by Partial Evaluation.}}
+% \Metadata{Jun 2025}\textbf{\textsf{PLDI 2025 Student Research Competition (SRC) 2\textsuperscript{nd} Place}}\\
+% \textit{Awarded in the graduate category for the work on \textnormal{Retargeting an Abstract Interpreter for a New Language by Partial Evaluation.}}
+\Entry{
+  date     = {Jun 2025},
+  title    = {PLDI 2025 Student Research Competition (SRC) 2\textsuperscript{nd} Place},
+  body     = {For the work on \textit{Retargeting an Abstract Interpreter for a New Language by Partial Evaluation}.},
+}
 \vspace{0.5\onelineskip}
 
-\sidepar{\footnotesize Sep 2024}\textbf{\textsf{Outstanding Teaching Assistant Award}}\\
-\textit{Awarded for the course \textnormal{SNU 4190.310 Programming Languages} taught by Prof. Kwangkeun Yi.}
+\Entry{
+  date     = {Sep 2024},
+  title    = {Outstanding Teaching Assistant Award},
+  body     = {For the course \textit{SNU 4190.310 Programming Languages} taught by Prof. Kwangkeun Yi.},
+}
 \vspace{0.5\onelineskip}
 
-\sidepar{\footnotesize Mar 2018--Feb 2024}\textbf{\textsf{National Presidential Scholarship for Science}}\\
-\textit{Offered to top-120 undergraduate students in the field of science and technology.}
+\Entry{
+  date     = {Mar 2018--Feb 2024},
+  title    = {National Presidential Scholarship for Science},
+  body     = {Offered to top-120 undergraduate students in the field of science and technology.},
+}
 \vspace{0.5\onelineskip}
 
-\sidepar{\footnotesize May 2017}\textbf{\textsf{Intel International Science and Engineering Fair (ISEF) Finalist}}\\
-\textit{Finalist with the project \textnormal{Receding Horizon Next-Best-View Planner Based Voronoi-Biased 3D Multi-Robot Exploration Algorithm.}}
+\Entry{
+  date     = {May 2017},
+  title    = {Intel International Science and Engineering Fair (ISEF) Finalist},
+  body     = {For the project \textit{Receding Horizon Next-Best-View Planner Based Voronoi-Biased 3D Multi-Robot Exploration Algorithm}.},
+}
 \vspace{0.5\onelineskip}
 
-\sidepar{\footnotesize Mar 2015--Feb 2018}\textbf{\textsf{Korea Science Academy Fund Scholarship}}\\
-\textit{Scholarship for students with high GPAs.}
+\Entry{
+  date     = {Mar 2015--Feb 2018},
+  title    = {Korea Science Academy Fund Scholarship},
+  body     = {For students with high GPAs.},
+}
 
 
 \section{Teaching}
 \subsection{Teaching Assistant}
-\sidepar{\footnotesize Spring 2025}\textbf{\textsf{SNU 4190.664A Program Analysis}}\\
-\sidepar{\footnotesize Spring 2025}\textbf{\textsf{SNU 4190.310 Programming Languages}}\\
-\sidepar{\footnotesize Spring 2024}\textbf{\textsf{SNU 4190.310 Programming Languages}}\\
-\textit{Awarded the Outstanding Teaching Assistant Award.}\\
-\sidepar{\footnotesize Spring 2022}\textbf{\textsf{SNU 4190.310 Programming Languages}}
+\Entry{
+  date     = {Spring 2025},
+  title    = {SNU 4190.664A Program Analysis},
+}
+
+\Entry{
+  date     = {Spring 2025},
+  title    = {SNU 4190.310 Programming Languages},
+}
+
+\Entry{
+  date     = {Spring 2024},
+  title    = {SNU 4190.310 Programming Languages},
+  note     = {Awarded the Outstanding Teaching Assistant Award for this course.},
+}
+
+\Entry{
+  date     = {Spring 2022},
+  title    = {SNU 4190.310 Programming Languages},
+}
 
 
 \section{Industry Employment}
-\sidepar{\footnotesize Apr 2019--Dec 2019}\textbf{\textsf{\href{https://jeongyookgak.com}{Jeongyookgak},}} \textit{iOS application developer}\\
-Jeongyookgak is a distribution business startup that delivers fresh meat to customers.
+\Entry{
+  date     = {Apr 2019--Dec 2019},
+  title    = {Jeongyookgak},
+  position = {iOS application developer},
+  body     = {Developed an iOS app for Jeongyookgak, a distribution business startup that delivers fresh meat to customers.},
+  url      = {https://jeongyookgak.com/},
+}
 
 \section{Miscellaneous}
-\sidepar{\footnotesize 2025--Present}\textbf{\textsf{\href{https://github.com/orgs/ocaml/people?query=jay+lee}{OCaml organization},}} \textit{Opam repository maintainer}\\
-Maintaining the OCaml package repository.
+\Entry{
+  date     = {2025--Present},
+  title    = {OCaml organization},
+  position = {Opam repository maintainer},
+  body     = {Maintaining the OCaml package repository.},
+  github   = {https://github.com/orgs/ocaml/people?query=jay+lee},
+}
 \vspace{0.5\onelineskip}
 
-\sidepar{\footnotesize 2023--Present}\textbf{\textsf{\href{https://easyword.kr/}{easyword.kr},}} \textit{Designer \& developer}\\
-A platform to suggest and discuss Korean translations of computer science jargons. Led by Prof. Kwangkeun Yi and funded by the Korean Institute of Information Scientists and Engineers (KIISE).
+\Entry{
+  date     = {2023--Present},
+  title    = {easyword.kr},
+  position = {Designer \& developer},
+  body     = {A platform to suggest and discuss Korean translations of computer science jargons. Led by Prof. Kwangkeun Yi and funded by the Korean Institute of Information Scientists and Engineers (KIISE).},
+  url      = {https://easyword.kr/},
+  github   = {https://github.com/Zeta611/easyword},
+}
 \vspace{0.5\onelineskip}
 
-\sidepar{\footnotesize 2020--Present}\textbf{\textsf{\href{https://ctan.org/pkg/simplebnf}{simplebnf},}} \textit{Developer}\\
-A \LaTeX{} package that provides a simple way to typeset BNF using a DSL. Available on CTAN.
+\Entry{
+  date     = {2020--Present},
+  title    = {simplebnf},
+  position = {Developer},
+  body     = {A \LaTeX{} package that provides a simple way to typeset BNF using a DSL. Available on \href{https://ctan.org/pkg/simplebnf}{CTAN}.}, % TODO: Add CTAN link here, and use GitHub link in the metadata.
+  github   = {https://github.com/Zeta611/simplebnf},
+}
 \vspace{0.5\onelineskip}
 
-\sidepar{\footnotesize 2023}\textbf{\textsf{\href{https://github.com/Zeta611/cycloidal-surfaces}{Cycloidal-Surfaces},}} \textit{Illustrator}\\
-Illustrations of cycloid surfaces on parametrized curves with Asymptote, used in \href{https://doi.org/10.1080/00029890.2022.2130677}{Hyounggyu Choi. (2023) Invariance of the Area and Volume of Cycloid Surfaces and Trochoid Surfaces. \textit{The American Mathematical Monthly} 130:1, 49-62.}
+\Entry{
+  date     = {2023},
+  title    = {Cycloidal-Surfaces},
+  position = {Illustrator \& developer},
+  body     = {Illustrations of cycloid surfaces on parametrized curves with Asymptote, used in Hyounggyu Choi. (2023) Invariance of the Area and Volume of Cycloid Surfaces and Trochoid Surfaces. \textit{The American Mathematical Monthly} 130:1, 49-62.},
+  github   = {https://github.com/Zeta611/cycloidal-surfaces},
+  paper    = {https://doi.org/10.1080/00029890.2022.2130677},
+}
 \vspace{0.5\onelineskip}
 
-\sidepar{\footnotesize 2020}\textbf{\textsf{\href{https://github.com/Zeta611/cycloidgen}{CycloidGen},}} \textit{Illustrator}\\
-Illustrations of cycloids on parametrized curves with Ti\textit{k}Z and Python, used in \href{https://doi.org/10.1080/00029890.2020.1743611}{Hyounggyu Choi. (2020) Invariance of the Length and the Area of Cycloids. \textit{The American Mathematical Monthly} 127:6, 537-544.}
+\Entry{
+  date     = {2020},
+  title    = {CycloidGen},
+  position = {Illustrator \& developer},
+  body     = {Illustrations of cycloids on parametrized curves with Ti\textit{k}Z and Python, used in Hyounggyu Choi. (2020) Invariance of the Length and the Area of Cycloids. \textit{The American Mathematical Monthly} 127:6, 537-544.},
+  github   = {https://github.com/Zeta611/cycloidgen},
+  paper    = {https://doi.org/10.1080/00029890.2020.1743611},
+}
 \vspace{0.5\onelineskip}
 
-\sidepar{\footnotesize 2019--2024}\textbf{\textsf{Korean \TeX\ Society (KTS),}} \textit{Member}\\
-I have given a few talks including:
-\begin{itemize}[noitemsep]
-  \item \href{https://githubcom/Zeta611/modern-tex-engines-automation-ai-latex-workshop-2023}{Modern \TeX: Engines, AI, and Automation}, 2023 KNU \LaTeX\ Workshop
-  \item \href{https://github.com/Zeta611/tabularray-tutorial-latex-workshop-2022}{Drawing tables with \texttt{tabularray}}, 2022 KNU \LaTeX\ Workshop
-  \item \href{https://github.com/Zeta611/asymptote-tutorial-latex-workshop-2021}{Asymptote: The Vector Graphics Language}, 2022 KNU \LaTeX\ Workshop
-  \item \href{https://github.com/Zeta611/key-value-tutorial-latex-workshop-2021}{The ``key-value'' structure in \LaTeX}, 2021 KNU \LaTeX\ Workshop
-  \item \href{https://github.com/Zeta611/beamer-tutorial-latex-workshop-2020}{\texttt{beamer}: Content-focused Presentation}, 2020 KNU \LaTeX\ Workshop
-  \item \href{https://github.com/Zeta611/texnical-vim-kts-conf-2020}{\TeX{}nical Vim}, 2020 KTS Conference
-  \item \href{https://github.com/Zeta611/chapterstyle-latex-workshop-2019}{\texttt{memoir}: chapter style}, 2019 KNU \LaTeX\ Workshop
-\end{itemize}
+\Entry{
+  date     = {2019--2024},
+  title    = {Korean \TeX\ Society (KTS)},
+  position = {Member},
+  body     = {I have given a few talks including:
+    \vspace{-0.5\onelineskip}
+    \begin{itemize}[noitemsep]
+      \item \href{https://githubcom/Zeta611/modern-tex-engines-automation-ai-latex-workshop-2023}{Modern \TeX: Engines, AI, and Automation}, 2023 KNU \LaTeX\ Workshop
+      \item \href{https://github.com/Zeta611/tabularray-tutorial-latex-workshop-2022}{Drawing tables with \texttt{tabularray}}, 2022 KNU \LaTeX\ Workshop
+      \item \href{https://github.com/Zeta611/asymptote-tutorial-latex-workshop-2021}{Asymptote: The Vector Graphics Language}, 2022 KNU \LaTeX\ Workshop
+      \item \href{https://github.com/Zeta611/key-value-tutorial-latex-workshop-2021}{The ``key-value'' structure in \LaTeX}, 2021 KNU \LaTeX\ Workshop
+      \item \href{https://github.com/Zeta611/beamer-tutorial-latex-workshop-2020}{\texttt{beamer}: Content-focused Presentation}, 2020 KNU \LaTeX\ Workshop
+      \item \href{https://github.com/Zeta611/texnical-vim-kts-conf-2020}{\TeX{}nical Vim}, 2020 KTS Conference
+      \item \href{https://github.com/Zeta611/chapterstyle-latex-workshop-2019}{\texttt{memoir}: chapter style}, 2019 KNU \LaTeX\ Workshop
+    \end{itemize}
+    \vspace{-0.5\onelineskip}
+  },
+}
 \vspace{0.5\onelineskip}
 
-\sidepar{\footnotesize 2018--2024}\textbf{\textsf{SNULife,}} \textit{Development head}\\
-SNULife is the web community for SNU with 180k+ monthly visitors. I created an iOS app for planning timetables and sharing lecture reviews, used by 5k+ users.
+\Entry{
+  date     = {2018--2024},
+  title    = {SNULife},
+  position = {Development head},
+  body     = {SNULife is the web community for SNU with 180k+ monthly visitors. I created an iOS app for planning timetables and sharing lecture reviews, used by 5k+ users.},
+}
 \vspace{0.5\onelineskip}
 
-\sidepar{\footnotesize 2020--2021}\textbf{\textsf{ROK Army,}} \textit{Sergeant signaller}\\
-Completed mandatory military service in the ROK Army.
+\Entry{
+  date     = {2020--2021},
+  title    = {Republic of Korea (ROK) Army},
+  position = {Sergeant signaller},
+  body     = {Completed mandatory military service in the ROK Army.},
+}
 \vspace{0.5\onelineskip}
 
-\sidepar{\footnotesize 2018}\textbf{\textsf{Student Representative,}} \textit{Department of Electrical and Computer Engineering}\\
-Elected as a student representative for the Department of Electrical and Computer Engineering at SNU.
+\Entry{
+  date     = {2018},
+  title    = {Student Representative},
+  position = {Department of Electrical and Computer Engineering},
+  body     = {Elected as a student representative for the Department of Electrical and Computer Engineering at SNU.},
+}
 \vspace{0.5\onelineskip}
 
-\sidepar{\footnotesize 2016, 2017}\textbf{\textsf{Korea Young Physicists' Tournament (KYPT),}} \textit{Team lead}\\
-KYPT is a physics competition for high school students. I led the team that won a gold medal in KYPT 2017 and a bronze medal in KYPT 2016.
+\Entry{
+  date     = {KYPT 2016, 2017},
+  title    = {Korea Young Physicists' Tournament},
+  position = {Team lead},
+  body     = {KYPT is a physics competition for high school students. I led the team that won a gold medal in KYPT 2017 and a bronze medal in KYPT 2016.},
+}
 \vspace{0.5\onelineskip}
 
-\sidepar{\footnotesize \href{https://doi.org/10.3745/PKIPS.y2016m10a.579}{\faFile*[regular]}~~KIPS 2016}\textbf{\textsf{Receding Horizon Next-Best-View Planner Based Voronoi-Biased 3D Multi-Robot Exploration Algorithm}}\\
+\Metadata{\href{https://doi.org/10.3745/PKIPS.y2016m10a.579}{\faFile*[regular]}\\KIPS 2016}\textbf{\textsf{Receding Horizon Next-Best-View Planner Based Voronoi-Biased 3D Multi-Robot Exploration Algorithm}}\\
 \ul{J. Lee}, C. Lee, W. Jung, S. Song, S. Jo\\
 A domestic conference paper.
 \vspace{0.5\onelineskip}
 
-\sidepar{\footnotesize 2016}\textbf{\textsf{Frontiers Summer Program,}} \textit{Worcester Polytechnic Institute}\\
-Studied aerospace engineering and psychology at Worcester Polytechnic Institute in the USA.
+\Entry{
+  date     = {2016},
+  title    = {Frontiers Summer Program},
+  position = {Worcester Polytechnic Institute},
+  body     = {Studied aerospace engineering and psychology at Worcester Polytechnic Institute in the USA.},
+}
 
 \section{Natural Languages}
+% \worldflag[width=1em]{KR} \textbf{Korean} (native), \worldflag[width=1em]{GB} \textbf{English} (fluent), \worldflag[width=1em]{ES} \textbf{Spanish} (elementary)
 \textbf{Korean} (native), \textbf{English} (fluent), \textbf{Spanish} (elementary)
 
 \vfill\hfill \textit{Last updated on \today.}
