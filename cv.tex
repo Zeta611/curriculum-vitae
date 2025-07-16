@@ -76,9 +76,6 @@
 \newcommand*\website{\href{https://ropas.snu.ac.kr/~jhlee/}{\texttt{ropas.snu.ac.kr/\textasciitilde jhlee}}}
 \newcommand*\blog{\href{https://jaylee.xyz}{\texttt{jaylee.xyz}}}
 
-\NewDocumentCommand{\Metadata}{m}
-{\sidepar{\footnotesize #1}}
-
 \ExplSyntaxOn
 \keys_define:nn { entry }
   {
@@ -101,17 +98,13 @@
 
     \tl_clear:N \l_meta
     \tl_if_blank:VF \l_cv_paper
-      {
-        \tl_put_right:Nn \l_meta { ~\href{\l_cv_paper}{\color{black}\faFile*[regular]} }
-      }
+      { \tl_put_right:Nn \l_meta { ~\href{\l_cv_paper}{\color{black}\faFile*[regular]} } }
     \tl_if_blank:VF \l_cv_github
-      {
-        \tl_put_right:Nn \l_meta { ~\href{\l_cv_github}{\color{black}\faGithub} }
-      }
+      { \tl_put_right:Nn \l_meta { ~\href{\l_cv_github}{\color{black}\faGithub} } }
+    \tl_if_blank:VF \l_cv_video
+      { \tl_put_right:Nn \l_meta { ~\href{\l_cv_video}{\color{black}\faYoutube} } }
     \tl_if_blank:VF \l_cv_url
-      {
-        \tl_put_right:Nn \l_meta { ~\href{\l_cv_url}{\color{black}\faGlobe} }
-      }
+      { \tl_put_right:Nn \l_meta { ~\href{\l_cv_url}{\color{black}\faGlobe} } }
 
     \sidepar
       {
@@ -207,12 +200,12 @@ Programming Languages, Program Analysis, Functional Programming, and Human-Compu
   title    = {Retargeting an Abstract Interpreter for a New Language by Partial Evaluation},
   body     = {\ul{Jay Lee}},
   note     = {Awarded 2\textsuperscript{nd} place in the graduate category.},
-  paper    = {https://pldi25.sigplan.org/details/pldi-2025-src/1/},
+  paper    = {https://doi.org/10.48550/arXiv.2507.04316},
+  video    = {https://www.youtube.com/live/BRhBv_aYNks?t=5750},
+  url      = {https://pldi25.sigplan.org/details/pldi-2025-src/1/},
 }
 
 \section{Selected Honors}
-% \Metadata{Jun 2025}\textbf{\textsf{PLDI 2025 Student Research Competition (SRC) 2\textsuperscript{nd} Place}}\\
-% \textit{Awarded in the graduate category for the work on \textnormal{Retargeting an Abstract Interpreter for a New Language by Partial Evaluation.}}
 \Entry{
   date     = {Jun 2025},
   title    = {PLDI 2025 Student Research Competition (SRC) 2\textsuperscript{nd} Place},
@@ -305,8 +298,9 @@ Programming Languages, Program Analysis, Functional Programming, and Human-Compu
   date     = {2020--Present},
   title    = {simplebnf},
   position = {Developer},
-  body     = {A \LaTeX{} package that provides a simple way to typeset BNF using a DSL. Available on \href{https://ctan.org/pkg/simplebnf}{CTAN}.}, % TODO: Add CTAN link here, and use GitHub link in the metadata.
+  body     = {A \LaTeX{} package that provides a simple way to typeset BNF using a DSL. Available on \href{https://ctan.org/pkg/simplebnf}{CTAN}.},
   github   = {https://github.com/Zeta611/simplebnf},
+  url      = {https://ctan.org/pkg/simplebnf},
 }
 \vspace{0.5\onelineskip}
 
@@ -355,6 +349,7 @@ Programming Languages, Program Analysis, Functional Programming, and Human-Compu
   title    = {SNULife},
   position = {Development head},
   body     = {SNULife is the web community for SNU with 180k+ monthly visitors. I created an iOS app for planning timetables and sharing lecture reviews, used by 5k+ users.},
+  url      = {https://www.snulife.com/},
 }
 \vspace{0.5\onelineskip}
 
@@ -382,9 +377,13 @@ Programming Languages, Program Analysis, Functional Programming, and Human-Compu
 }
 \vspace{0.5\onelineskip}
 
-\Metadata{\href{https://doi.org/10.3745/PKIPS.y2016m10a.579}{\faFile*[regular]}\\KIPS 2016}\textbf{\textsf{Receding Horizon Next-Best-View Planner Based Voronoi-Biased 3D Multi-Robot Exploration Algorithm}}\\
-\ul{J. Lee}, C. Lee, W. Jung, S. Song, S. Jo\\
-A domestic conference paper.
+\Entry{
+  date     = {KIPS 2016},
+  title    = {Receding Horizon Next-Best-View Planner Based Voronoi-Biased 3D Multi-Robot Exploration Algorithm},
+  body     = {\ul{J. Lee}, C. Lee, W. Jung, S. Song, S. Jo},
+  note     = {A domestic conference paper.},
+  paper    = {https://doi.org/10.3745/PKIPS.y2016m10a.579},
+}
 \vspace{0.5\onelineskip}
 
 \Entry{
