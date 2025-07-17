@@ -36,9 +36,11 @@
   BoldItalicFont = *-BoldItalic,
   Scale          = MatchLowercase,
 ]
+\defaultfontfeatures{RawFeature={+axis={wght=400}}}
 \setmainhangulfont{Noto Serif CJK KR}[
   Scale         = MatchUppercase,
-  AutoFakeSlant = 0.15
+  AutoFakeSlant = 0.15,
+  Renderer=OpenType,
 ]
 \setsanshangulfont{KoPubWorldDotum_Pro}[
   Scale    = MatchUppercase,
@@ -57,19 +59,21 @@
 ]
 
 \newcommand\Rdemon{{\redemonfont ReDemon UI}}
+\def\cplus{\raisebox{.4ex}{\relsize{-3}{\texttt{+}}}}
+\def\C++{C\nolinebreak\hspace{-.081em}\cplus\nolinebreak\hspace{-0.02em}\cplus}
 
 \setlength{\parindent}{0pt}
 
 %%% Memoir settings
-\pagestyle{empty}
+\thispagestyle{empty}
 \setsecnumdepth{none}
 
-\newcommand{\ruledsec}[1]{%
-\Large\scshape\raggedright\strut #1%
-\hrule%
-}
+\newcommand{\ruledsec}[1]{\large\scshape\raggedright\strut #1\hrule}
 \setsecheadstyle{\ruledsec}
 \setaftersecskip{.5\onelineskip}
+
+\newcommand{\subsec}[1]{\bfseries\raggedright\strut #1}
+\setsubsecheadstyle{\subsec}
 
 \newcommand*\mail[1]{\href{mailto:#1}{\texttt{#1}}}
 \newcommand*\github[1]{\href{https://github.com/#1}{\texttt{#1}}}
@@ -277,6 +281,14 @@ Programming Languages, Program Analysis, Functional Programming, and Human-Compu
 \section{Miscellaneous}
 \Entry{
   date     = {2025--Present},
+  title    = {PL Reading Group\,@\,Seoul/Tokyo},
+  position = {Co-organizer},
+  body     = {PL reading group with participants from \textit{Programming Research Laboratory at Seoul National University} and \textit{Programming Research Group at the Institute of Science Tokyo.} Tuesday every week at 2PM KST/JST.},
+}
+\vspace{0.5\onelineskip}
+
+\Entry{
+  date     = {2025--Present},
   title    = {OCaml organization},
   position = {Opam repository maintainer},
   body     = {Maintaining the OCaml package repository.},
@@ -393,9 +405,13 @@ Programming Languages, Program Analysis, Functional Programming, and Human-Compu
   body     = {Studied aerospace engineering and psychology at Worcester Polytechnic Institute in the USA.},
 }
 
+\section{Programming Languages}
+C~(2012), \textbf{Python}~(2013), \C++~(2016), \textbf{\TeX}~(2016), Swift~(2018), Ti\textit{k}Z~(2018), \textbf{OCaml}~(2019), \lambda{} calculus~(2019), \textbf{\LaTeX3/expl3}~(2019), Asymptote~(2020), Scheme~(2020), AWK~(2020), JavaScript~(2020), Lua~(2021), \texttt{CWEB}~(2021), Yacc~(2021), \textbf{ReScript}~(2022), \textbf{React}~(2022), Rocq/Coq~(2023), Rust~(2023), \textbf{TypeScript}~(2023), Typst~(2024), Nix~(2024), Lean~(2025).
+I use the \textbf{bolded} languages frequently.
+
 \section{Natural Languages}
 % \worldflag[width=1em]{KR} \textbf{Korean} (native), \worldflag[width=1em]{GB} \textbf{English} (fluent), \worldflag[width=1em]{ES} \textbf{Spanish} (elementary)
-\textbf{Korean} (native), \textbf{English} (fluent), \textbf{Spanish} (elementary)
+\textbf{Korean}~(native, 1999), \textbf{English}~(fluent, 2006), \textbf{Spanish}~(elementary, 2022)
 
-\vfill\hfill \textit{Last updated on \today.}
+\vfill\hfill \textit{Last updated on \today~(using \LaTeX3{} on Vim \& NixOS/macOS btw).}
 \end{document}
