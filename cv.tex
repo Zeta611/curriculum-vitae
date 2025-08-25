@@ -18,6 +18,8 @@
 % \usepackage{worldflags}
 \usepackage{soul}
 
+\usepackage{siunitx}
+
 % For madsen chapter style:
 \usepackage{graphicx}
 
@@ -60,6 +62,7 @@
   BoldFont = *-Bold,
 ]
 
+\newcommand\Rtrace{\textsf{\textsc{React-tRace}}}
 \newcommand\Rdemon{{\redemonfont ReDemon UI}}
 \def\cplus{\raisebox{.4ex}{\relsize{-3}{\texttt{+}}}}
 \def\C++{C\nolinebreak\hspace{-.081em}\cplus\nolinebreak\hspace{-0.02em}\cplus}
@@ -67,7 +70,6 @@
 \setlength{\parindent}{0pt}
 
 %%% Memoir settings
-\thispagestyle{empty}
 \setsecnumdepth{none}
 
 \newcommand{\ruledsec}[1]{\large\scshape\raggedright\strut #1\hrule}
@@ -140,9 +142,12 @@
   urlcolor   = {violet!73!black},
   pdflang    = {en},
   pdfsubject = {Jay Lee's Curriculum Vitae},
+  pdftitle   = {Jay Lee — Curriculum Vitae},
+  pdfauthor  = {Jay Lee},
 }
 
 \begin{document}
+\thispagestyle{empty}
 {\huge \textsc{Jay Lee}~~이재호 \hfill \textsc{Curriculum Vitae}}
 
 \vspace{0.5\onelineskip}
@@ -151,7 +156,7 @@
 \faGithub~~\github{Zeta611}
 
 \section{Research Interests}
-Programming Languages, Program Analysis, Functional Programming, and Human-Computer Interaction
+Programming Languages, Program Analysis, Functional Programming, and Human--Computer Interaction
 
 \section{Education}
 \Entry{
@@ -166,7 +171,7 @@ Programming Languages, Program Analysis, Functional Programming, and Human-Compu
 \Entry{
   date     = {Mar 2018--Feb 2024},
   title    = {Seoul National University (SNU)},
-  position = {B.S. in Electrical and Computer Engineering (Cum laude)},
+  position = {B.S. in Electrical and Computer Engineering (cum laude)},
   body     = {Advised by \href{https://laser.snu.ac.kr/members/professor}{Yoonchan Jeong}.},
   note     = {Leave of absence for mandatory military service during 2020--2021.},
 }
@@ -184,11 +189,12 @@ Programming Languages, Program Analysis, Functional Programming, and Human-Compu
 \section{Selected Research}
 \Entry{
   date     = {OOPSLA 2025},
-  title    = {\textsc{React-tRace:} A Semantics for Understanding React Hooks},
+  title    = {\Rtrace: A Semantics for Understanding React Hooks},
   body     = {\ul{Jay Lee}, Joongwon Ahn, Kwangkeun Yi},
   note     = {Accepted.},
   paper    = {https://doi.org/10.48550/arXiv.2507.05234},
   github   = {https://github.com/Zeta611/react-trace},
+  url   = {https://react-trace.vercel.app/},
 }
 \vspace{0.5\onelineskip}
 
@@ -199,6 +205,7 @@ Programming Languages, Program Analysis, Functional Programming, and Human-Compu
   note     = {Accepted.},
   paper    = {https://doi.org/10.48550/arXiv.2507.10099},
   github   = {https://github.com/Zeta611/redemon-ui},
+  url   = {https://redemon-ui.vercel.app/},
 }
 \vspace{0.5\onelineskip}
 
@@ -214,25 +221,42 @@ Programming Languages, Program Analysis, Functional Programming, and Human-Compu
 
 \section{Selected Honors}
 \Entry{
+  date     = {Aug 2025},
+  title    = {SIGPL Summer School 2025 Presentation Award 1\textsuperscript{st} Place},
+  position = {KIISE SIGPL},
+  body     = {\Rtrace: A Semantics for Understanding React Hooks},
+}
+\vspace{0.5\onelineskip}
+
+\Entry{
   date     = {Jun 2025},
-  title    = {PLDI 2025 Student Research Competition (SRC) 2\textsuperscript{nd} Place},
-  position = {Graduate category},
-  body     = {For the work on \textit{Retargeting an Abstract Interpreter for a New Language by Partial Evaluation}.},
+  title    = {PLDI 2025 Student Research Competition (SRC) Graduate Category 2\textsuperscript{nd} Place},
+  position = {ACM SIGPLAN},
+  body     = {Retargeting an Abstract Interpreter for a New Language by Partial Evaluation},
 }
 \vspace{0.5\onelineskip}
 
 \Entry{
   date     = {Sep 2024},
   title    = {Outstanding Teaching Assistant Award},
-  body     = {For the course \textit{SNU 4190.310 Programming Languages} taught by Prof. Kwangkeun Yi.},
+  position = {SNU College of Engineering},
+  body     = {SNU 4190.310 Programming Languages},
+}
+\vspace{0.5\onelineskip}
+
+\Entry{
+  date     = {Aug 2024},
+  title    = {SIGPL Summer School 2024 Presentation Award 2\textsuperscript{nd} Place},
+  position = {KIISE SIGPL},
+  body     = {Let's Catch Incorrect React Hook Usage Early!},
 }
 \vspace{0.5\onelineskip}
 
 \Entry{
   date     = {Mar 2018--Feb 2024},
-  title    = {National Presidential Scholarship for Science},
-  position = {Full tuition waiver with an academic incentive},
-  body     = {Offered to top-120 undergraduate students in the field of science and technology.},
+  title    = {Presidential Science Scholarship},
+  position = {Korea Student Aid Foundation},
+  note     = {Full tuition waiver with an incentive offered to top 120 undergraduates in the field of science.},
 }
 \vspace{0.5\onelineskip}
 
@@ -240,33 +264,46 @@ Programming Languages, Program Analysis, Functional Programming, and Human-Compu
   date     = {May 2017},
   title    = {Intel International Science and Engineering Fair (ISEF) Finalist},
   position = {Korean representative},
-  body     = {For the project \textit{Receding Horizon Next-Best-View Planner Based Voronoi-Biased 3D Multi-Robot Exploration Algorithm}.},
+  body     = {Receding Horizon Next-Best-View Planner Based Voronoi-Biased 3D Multi-Robot Exploration Algorithm},
 }
 \vspace{0.5\onelineskip}
 
 \Entry{
   date     = {Mar 2015--Feb 2018},
   title    = {Korea Science Academy Fund Scholarship},
-  body     = {For students with high GPAs.},
+  position = {Korea Science Academy of KAIST},
+  note     = {For students with high GPAs.},
 }
 
 
 \section{Teaching}
 \subsection{Teaching Assistant}
+
+% \Entry{
+%   date     = {Fall 2025},
+%   title    = {SNU M1522.007600 Computing Overview},
+% }
+
 \Entry{
   date     = {Spring 2025},
   title    = {SNU 4190.664A Program Analysis},
+  position = {Outstanding Teaching Assistant Award (currently nominated)},
 }
 
 \Entry{
   date     = {Spring 2025},
   title    = {SNU 4190.310 Programming Languages},
+}
+
+\Entry{
+  date     = {Fall 2024},
+  title    = {SNU 4190.209 Computer Engineering Seminar},
 }
 
 \Entry{
   date     = {Spring 2024},
   title    = {SNU 4190.310 Programming Languages},
-  note     = {Awarded the Outstanding Teaching Assistant Award for this course.},
+  position = {Outstanding Teaching Assistant Award},
 }
 
 \Entry{
@@ -297,7 +334,7 @@ Programming Languages, Program Analysis, Functional Programming, and Human-Compu
   date     = {2025--Present},
   title    = {PL Reading Group\,@\,Seoul/Tokyo},
   position = {Co-organizer},
-  body     = {PL reading group with participants from \textit{Programming Research Laboratory at Seoul National University} and \textit{Programming Research Group at the Institute of Science Tokyo.} Tuesday every week at 2PM KST/JST.},
+  body     = {PL reading group with participants from \textit{Programming Research Laboratory at Seoul National University} and \textit{Programming Research Group at the Institute of Science Tokyo.} Tuesday every week at \qty{2}{PM} KST/JST.},
 }
 \vspace{0.5\onelineskip}
 
@@ -334,7 +371,7 @@ Programming Languages, Program Analysis, Functional Programming, and Human-Compu
   date     = {2023},
   title    = {Cycloidal-Surfaces},
   position = {Illustrator \& developer},
-  body     = {Illustrations of cycloid surfaces on parametrized curves with Asymptote, used in Hyounggyu Choi. (2023) Invariance of the Area and Volume of Cycloid Surfaces and Trochoid Surfaces. \textit{The American Mathematical Monthly} 130:1, 49-62.},
+  body     = {Illustrations of cycloid surfaces on parametrized curves with Asymptote, used in Hyounggyu Choi (2023), Invariance of the Area and Volume of Cycloid Surfaces and Trochoid Surfaces. \textit{The American Mathematical Monthly} 130:1, 49--62.},
   github   = {https://github.com/Zeta611/cycloidal-surfaces},
   paper    = {https://doi.org/10.1080/00029890.2022.2130677},
 }
@@ -344,7 +381,7 @@ Programming Languages, Program Analysis, Functional Programming, and Human-Compu
   date     = {2020},
   title    = {CycloidGen},
   position = {Illustrator \& developer},
-  body     = {Illustrations of cycloids on parametrized curves with Ti\textit{k}Z and Python, used in Hyounggyu Choi. (2020) Invariance of the Length and the Area of Cycloids. \textit{The American Mathematical Monthly} 127:6, 537-544.},
+  body     = {Illustrations of cycloids on parametrized curves with Ti\textit{k}Z and Python, used in Hyounggyu Choi (2020), Invariance of the Length and the Area of Cycloids. \textit{The American Mathematical Monthly} 127:6, 537--544.},
   github   = {https://github.com/Zeta611/cycloidgen},
   paper    = {https://doi.org/10.1080/00029890.2020.1743611},
 }
@@ -357,9 +394,9 @@ Programming Languages, Program Analysis, Functional Programming, and Human-Compu
   body     = {I have given a few talks including:
     \vspace{-0.5\onelineskip}
     \begin{itemize}[noitemsep]
-      \item \href{https://githubcom/Zeta611/modern-tex-engines-automation-ai-latex-workshop-2023}{Modern \TeX: Engines, AI, and Automation}, 2023 KNU \LaTeX\ Workshop
+      \item \href{https://github.com/Zeta611/modern-tex-engines-automation-ai-latex-workshop-2023}{Modern \TeX: Engines, AI, and Automation}, 2023 KNU \LaTeX\ Workshop
       \item \href{https://github.com/Zeta611/tabularray-tutorial-latex-workshop-2022}{Drawing tables with \texttt{tabularray}}, 2022 KNU \LaTeX\ Workshop
-      \item \href{https://github.com/Zeta611/asymptote-tutorial-latex-workshop-2021}{Asymptote: The Vector Graphics Language}, 2022 KNU \LaTeX\ Workshop
+      \item \href{https://github.com/Zeta611/asymptote-tutorial-latex-workshop-2021}{Asymptote: The Vector Graphics Language}, 2021 KNU \LaTeX\ Workshop
       \item \href{https://github.com/Zeta611/key-value-tutorial-latex-workshop-2021}{The ``key-value'' structure in \LaTeX}, 2021 KNU \LaTeX\ Workshop
       \item \href{https://github.com/Zeta611/beamer-tutorial-latex-workshop-2020}{\texttt{beamer}: Content-focused Presentation}, 2020 KNU \LaTeX\ Workshop
       \item \href{https://github.com/Zeta611/texnical-vim-kts-conf-2020}{\TeX{}nical Vim}, 2020 KTS Conference
@@ -382,7 +419,7 @@ Programming Languages, Program Analysis, Functional Programming, and Human-Compu
 \Entry{
   date     = {2020--2021},
   title    = {Republic of Korea (ROK) Army},
-  position = {Sergeant signaller},
+  position = {Sergeant signaler},
   body     = {Completed mandatory military service in the ROK Army.},
 }
 \vspace{0.5\onelineskip}
