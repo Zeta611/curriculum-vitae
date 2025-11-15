@@ -80,10 +80,17 @@
 \setsubsecheadstyle{\subsec}
 \setaftersubsecskip{.2\onelineskip}
 
+\makepagestyle{cv}
+\makeoddhead{cv}{\textsc{Jay Lee}}{\textsc{Curriculum Vitae}}{\href{https://jaylee.xyz}{\texttt{jaylee.xyz}}}
+\makeevenhead{cv}{\textsc{Jay Lee}}{\textsc{Curriculum Vitae}}{\href{https://jaylee.xyz}{\texttt{jaylee.xyz}}}
+\makeoddfoot{cv}{}{\thepage}{}
+\makeevenfoot{cv}{}{\thepage}{}
+\pagestyle{cv}
+
 \newcommand*\mail[1]{\href{mailto:#1}{\texttt{#1}}}
 \newcommand*\github[1]{\href{https://github.com/#1}{\texttt{#1}}}
-\newcommand*\website{\href{https://ropas.snu.ac.kr/~jhlee/}{\texttt{ropas.snu.ac.kr/\textasciitilde jhlee}}}
-\newcommand*\blog{\href{https://jaylee.xyz}{\texttt{jaylee.xyz}}}
+% \newcommand*\website{\href{https://ropas.snu.ac.kr/~jhlee/}{\texttt{ropas.snu.ac.kr/\textasciitilde jhlee}}}
+\newcommand*\website{\href{https://jaylee.xyz}{\texttt{jaylee.xyz}}}
 
 \ExplSyntaxOn
 \keys_define:nn { entry }
@@ -151,16 +158,17 @@
 {\huge \textsc{Jay Lee}~~이재호 \hfill \textsc{Curriculum Vitae}}
 
 \vspace{0.5\onelineskip}
-\faEnvelope[regular]~~\mail{jaeho.lee@snu.ac.kr}, \mail{jhlee@ropas.snu.ac.kr} \\
-\faGlobe~~\href{https://ropas.snu.ac.kr/~jhlee/}{\texttt{ropas.snu.ac.kr/\textasciitilde jhlee}}, \href{https://jaylee.xyz/}{\texttt{jaylee.xyz}} \\
-\faGithub~~\github{Zeta611}
+\faGlobe~~\website \qquad
+\faGithub~~\github{Zeta611} \qquad
+\faEnvelope[regular]~~\mail{jaeho.lee@snu.ac.kr}, \mail{jhlee@ropas.snu.ac.kr}
 
 \section{Research Interests}
-Programming Languages, Program Analysis, Functional Programming, and Human--Computer Interaction
+I build tools and abstractions to help programmers and domain experts easily build reliable systems.\\
+\emph{Areas: Programming Languages · Static Analysis · Program Synthesis · Human--Computer Interaction}
 
 \section{Education}
 \Entry{
-  date     = {Mar 2024--Present},
+  date     = {Mar 2024--Feb 2026},
   title    = {Seoul National University (SNU)},
   position = {M.S. in Computer Science and Engineering},
   body     = {Advised by \href{http://kwangkeunyi.snu.ac.kr/}{Kwangkeun Yi}.},
