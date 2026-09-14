@@ -81,16 +81,17 @@
 \setaftersubsecskip{.2\onelineskip}
 
 \makepagestyle{cv}
-\makeoddhead{cv}{\textsc{Jay Lee}}{\textsc{Curriculum Vitae}}{\href{https://jaylee.xyz}{\texttt{jaylee.xyz}}}
-\makeevenhead{cv}{\textsc{Jay Lee}}{\textsc{Curriculum Vitae}}{\href{https://jaylee.xyz}{\texttt{jaylee.xyz}}}
+\makeoddhead{cv}{\textsc{Jay Lee}}{\textsc{Curriculum Vitae}}{\href{https://jaylee.pl}{\texttt{jaylee.pl}}}
+\makeevenhead{cv}{\textsc{Jay Lee}}{\textsc{Curriculum Vitae}}{\href{https://jaylee.pl}{\texttt{jaylee.pl}}}
 \makeoddfoot{cv}{}{\thepage}{}
 \makeevenfoot{cv}{}{\thepage}{}
 \pagestyle{cv}
 
 \newcommand*\mail[1]{\href{mailto:#1}{\texttt{#1}}}
 \newcommand*\github[1]{\href{https://github.com/#1}{\texttt{#1}}}
+\newcommand*\orcid[1]{\href{https://orcid.org/#1}{\texttt{#1}}}
 % \newcommand*\website{\href{https://ropas.snu.ac.kr/~jhlee/}{\texttt{ropas.snu.ac.kr/\textasciitilde jhlee}}}
-\newcommand*\website{\href{https://jaylee.xyz}{\texttt{jaylee.xyz}}}
+\newcommand*\website{\href{https://jaylee.pl}{\texttt{jaylee.pl}}}
 
 \ExplSyntaxOn
 \keys_define:nn { entry }
@@ -160,7 +161,8 @@
 \vspace{0.4\onelineskip}
 \faGlobe~~\website \qquad
 \faGithub~~\github{Zeta611} \qquad
-\faEnvelope[regular]~~\mail{jaeho.lee@snu.ac.kr}, \mail{jhlee@ropas.snu.ac.kr}
+\faOrcid~~\orcid{0000-0002-2224-4861} \qquad
+\faEnvelope[regular]~~\mail{jay.lee@berkeley.edu}
 
 \section{Research Interests}
 I build tools and abstractions to help programmers and domain experts easily build reliable systems.\\
@@ -171,7 +173,7 @@ I build tools and abstractions to help programmers and domain experts easily bui
   date     = {Sep 2026--},
   title    = {University of California, Berkeley},
   position = {Ph.D. in Computer Science},
-  note     = {Accepted admission.},
+  body     = {Advised by \href{https://schasins.com/}{Sarah E. Chasins}.},
 }
 \vspace{0.1\onelineskip}
 
@@ -322,14 +324,14 @@ I build tools and abstractions to help programmers and domain experts easily bui
   position = {Korean representative},
   body     = {Receding Horizon Next-Best-View Planner Based Voronoi-Biased 3D Multi-Robot Exploration Algorithm},
 }
-% \vspace{0.1\onelineskip}
-%
-% \Entry{
-%   date     = {Mar 2015--Feb 2018},
-%   title    = {Korea Science Academy Fund Scholarship},
-%   position = {Korea Science Academy of KAIST},
-%   note     = {For students with high GPAs.},
-% }
+\vspace{0.1\onelineskip}
+
+\Entry{
+  date     = {Mar 2015--Feb 2018},
+  title    = {Korea Science Academy Fund Scholarship},
+  position = {Korea Science Academy of KAIST},
+  note     = {For students with high GPAs.},
+}
 
 
 \section{Teaching}
@@ -372,6 +374,15 @@ I build tools and abstractions to help programmers and domain experts easily bui
   date     = {Fall 2024},
   title    = {SNU SPLIT Basic Programming Tutoring},
   position = {Python tutor},
+}
+
+
+\section{Academic Services}
+\Entry{
+  date     = {Aug 2026},
+  position = {Reviewer},
+  title    = {Science of Computer Programming (ISSN: \href{https://portal.issn.org/resource/ISSN/0167-6423}{0167-6423})},
+  paper    = {https://jaylee.pl/certificates/reviewer-scp-2026.pdf},
 }
 
 
